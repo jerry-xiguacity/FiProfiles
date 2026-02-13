@@ -69,18 +69,18 @@ proxies:
      headers:
        Host: 22e624ffa4984bbada60b27c81e5221c.mobgslb.tbcache.com
  - name: "London"
-  type: vless
-  server: 185.212.62.49
-  port: 51329
-  uuid: 36a666ce-e551-4ed5-81b4-a7f0382706d9
-  network: tcp
-  tls: true
-  skip-cert-verify: false
-  servername: www.amazon.com
-  client-fingerprint: chrome
-  flow: xtls-rprx-vision
-  reality-opts:
-    public-key: sQfX-LOKgoM7HAuMgNGHIo1LElKqBl4AiACJVnQCby4
+   type: vless
+   server: 185.212.62.49
+   port: 51329
+   uuid: 36a666ce-e551-4ed5-81b4-a7f0382706d9
+   network: tcp
+   tls: true
+   skip-cert-verify: false
+   servername: www.amazon.com
+   client-fingerprint: chrome
+   flow: xtls-rprx-vision
+   reality-opts:
+     public-key: sQfX-LOKgoM7HAuMgNGHIo1LElKqBl4AiACJVnQCby4
 proxy-groups:
   - name: "Auto"
     type: select
