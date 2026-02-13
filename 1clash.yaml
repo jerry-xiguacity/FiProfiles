@@ -1,0 +1,174 @@
+proxies:
+ - name: "UK Backup"
+   type: vless
+   server: uk1.miyazono-kaori.com
+   port: 443
+   uuid: 3b7e78ac-b72d-47a5-af75-96e6cc1c264b
+   udp: true
+   tls: true
+   flow: xtls-rprx-vision
+   skip-cert-verify: false
+   servername: www.bp.com
+   client-fingerprint: firefox
+   reality-opts:
+     public-key: _dsOu_vxEU7pY3sIeGJxIpR0Ac2KoqIyBor2Bx0CwGA
+     short-id: d923
+ - name: "Hong Kong Telecom 01"
+   alterId: 0
+   cipher: auto
+   client-fingerprint: firefox
+   flow: "xtls-rprx-vision"
+   port: 443
+   reality-opts:
+     public-key: JEH14p4YvGvmDdBct-yekywfh8xcbbHjTBoBteh_qSs
+     short-id: 7538ac
+   server: hk1.miyazono-kaori.com
+   servername: www.microsoft.com
+   skip-cert-verify: false
+   tls: true
+   type: vless
+   udp: true
+   uuid: 3b7e78ac-b72d-47a5-af75-96e6cc1c264b
+ - name: "US-LA"
+   type: vmess
+   server: planb.mojcn.com
+   port: 16648
+   uuid: 4fdd74e1-b173-40d9-ad7f-4e84a380bcc2
+   alterId: 0
+   cipher: auto
+   udp: true
+   network: ws
+   ws-opts:
+     path: /
+     headers:
+       Host: 22e624ffa4984bbada60b27c81e5221c.mobgslb.tbcache.com
+ - name: "US-LA-2"
+   type: vmess
+   server: m.cnmjin.net
+   port: 16648
+   uuid: 4fdd74e1-b173-40d9-ad7f-4e84a380bcc2
+   alterId: 0
+   cipher: auto
+   udp: true
+   network: ws
+   ws-opts:
+     path: /
+     headers:
+       Host: 22e624ffa4984bbada60b27c81e5221c.mobgslb.tbcache.com
+ - name: "US-LA-3"
+   type: vmess
+   server: t.cnmjcn.cyou
+   port: 16648
+   uuid: 4fdd74e1-b173-40d9-ad7f-4e84a380bcc2
+   alterId: 0
+   cipher: auto
+   udp: true
+   network: ws
+   ws-opts:
+     path: /
+     headers:
+       Host: 22e624ffa4984bbada60b27c81e5221c.mobgslb.tbcache.com
+ - name: "London"
+   type: vless
+   server: huangyitao.uk
+   port: 443
+   uuid: f3216cd9-c244-4a6f-911d-2c180f79a171
+   tls: true
+   udp: true
+   network: tcp
+   skip-cert-verify: false
+   ws-opts:
+     path: "/"
+proxy-groups:
+  - name: "Auto"
+    type: select
+    proxies:
+      - "London"
+      - "UK Backup"
+      - DIRECT
+  - name: "Google"
+    type: select
+    proxies:
+      - "UK Backup"
+      - DIRECT
+  - name: "Streaming"
+    type: select
+    proxies:
+      - "US-LA"
+      - "US-LA-2"
+      - "US-LA-3"
+      - "Hong Kong Telecom 01"
+      - DIRECT
+  - name: "Netflix"
+    type: select
+    proxies:
+      - "London"
+      - "Hong Kong Telecom 01"
+      - "UK Backup"
+      - "US-LA"
+      - "US-LA-2"
+      - "US-LA-3"
+      - DIRECT
+rules:
+  - IP-ASN,62014,Auto,no-resolve
+  - IP-ASN,59930,Auto,no-resolve
+  - IP-ASN,44907,Auto,no-resolve
+  - IP-ASN,211157,Auto,no-resolve
+  - PROCESS-NAME,Telegram.exe,Auto
+  - PROCESS-NAME,Telegram,Auto
+  - GEOSITE,google,Google
+  - GEOSITE,hbo,Streaming
+  - GEOSITE,disney,Streaming
+  - GEOSITE,netflix,Netflix
+  - DOMAIN-SUFFIX,tapbots.com,Auto
+  - GEOSITE,steam@cn,DIRECT
+  - GEOSITE,steam,Auto
+  - DOMAIN-SUFFIX,iphone-ld.apple.com,DIRECT
+  - DOMAIN-SUFFIX,lcdn-locator.apple.com,DIRECT
+  - DOMAIN-SUFFIX,lcdn-registration.apple.com,DIRECT
+  - DOMAIN-SUFFIX,push.apple.com,DIRECT
+  - PROCESS-NAME,trustd,Auto
+  - GEOSITE,microsoft@cn,DIRECT
+  - GEOSITE,microsoft,Auto
+  - GEOSITE,xbox,Auto
+  - PROCESS-NAME,v2ray,DIRECT
+  - PROCESS-NAME,Surge,DIRECT
+  - PROCESS-NAME,ss-local,DIRECT
+  - PROCESS-NAME,privoxy,DIRECT
+  - PROCESS-NAME,trojan,DIRECT
+  - PROCESS-NAME,trojan-go,DIRECT
+  - PROCESS-NAME,naive,DIRECT
+  - PROCESS-NAME,CloudflareWARP,DIRECT
+  - PROCESS-NAME,Cloudflare WARP,DIRECT
+  - IP-CIDR,162.159.193.0/24,DIRECT,no-resolve
+  - PROCESS-NAME,p4pclient,DIRECT
+  - PROCESS-NAME,Thunder,DIRECT
+  - PROCESS-NAME,DownloadService,DIRECT
+  - PROCESS-NAME,qbittorrent,DIRECT
+  - PROCESS-NAME,Transmission,DIRECT
+  - PROCESS-NAME,fdm,DIRECT
+  - PROCESS-NAME,aria2c,DIRECT
+  - PROCESS-NAME,Folx,DIRECT
+  - PROCESS-NAME,NetTransport,DIRECT
+  - PROCESS-NAME,uTorrent,DIRECT
+  - PROCESS-NAME,WebTorrent,DIRECT
+  - GEOIP,LAN,DIRECT
+  - GEOIP,CN,DIRECT
+  - MATCH,Auto
+script:
+  shortcuts:
+    quic: network == 'udp' and dst_port == 443
+dns:
+  default-nameserver:
+    - 114.114.115.115
+    - 119.28.28.28
+    - 223.6.6.6
+    - system
+  nameserver:
+    - https://223.5.5.5/dns-query
+    - https://223.6.6.6/dns-query
+    - https://1.12.12.12/dns-query
+    - https://120.53.53.53/dns-query
+  follow-rule: true
+log-level: warning
+mode: rule
