@@ -29,6 +29,92 @@ proxies:
    type: vless
    udp: true
    uuid: 3b7e78ac-b72d-47a5-af75-96e6cc1c264b
+   client-fingerprint: chrome
+ - name: "Hong Kong Telecom 02"
+   type: vless
+   server: hk2.miyazono-kaori.com
+   port: 443
+   uuid: 3b7e78ac-b72d-47a5-af75-96e6cc1c264b
+   alterId: 0
+   cipher: auto
+   udp: true
+   network: tcp
+   tls: true
+   skip-cert-verify: false
+   servername: www.microsoft.com
+   flow: xtls-rprx-vision
+   reality-opts:
+     public-key: mZtlvdA_Hx2TJDInSO9WF4N241Y4oqUoCWjFcw3fNkA
+     short-id: 4c5632849b
+   client-fingerprint: chrome
+ - name: "Hong Kong Amazon 03"
+   type: vless
+   server: hk3.miyazono-kaori.com
+   port: 40861
+   uuid: 3b7e78ac-b72d-47a5-af75-96e6cc1c264b
+   alterId: 0
+   cipher: auto
+   udp: true
+   network: tcp
+   tls: true
+   skip-cert-verify: false
+   servername: www.lamer.com.hk
+   flow: xtls-rprx-vision
+   reality-opts:
+     public-key: jPymHTkjS3jmcg1bZaFB99XX1BeT3cblMXdWm_iUljc
+     short-id: ae4164b19a36
+   client-fingerprint: chrome
+ - name: "Hong Kong Amazon 04"
+   type: vless
+   server: hk4.miyazono-kaori.com
+   port: 443
+   uuid: 3b7e78ac-b72d-47a5-af75-96e6cc1c264b
+   alterId: 0
+   cipher: auto
+   udp: true
+   network: tcp
+   tls: true
+   skip-cert-verify: false
+   servername: www.lamer.com.hk
+   flow: xtls-rprx-vision
+   reality-opts:
+     public-key: f3IeMtJOBxpQanoPmilQ7_MGqwef32Ah1rydOYwO5i4
+     short-id: 377bb9d82638
+   client-fingerprint: chrome
+ - name: "Hong Kong Amazon 05"
+   type: vless
+   server: hk5.miyazono-kaori.com
+   port: 24435
+   uuid: 3b7e78ac-b72d-47a5-af75-96e6cc1c264b
+   alterId: 0
+   cipher: auto
+   udp: true
+   network: tcp
+   tls: true
+   skip-cert-verify: false
+   servername: www.lamer.com.hk
+   flow: xtls-rprx-vision
+   reality-opts:
+     public-key: n89hJIFnI7qq_mPq_vyEeiV0848cuXhH7Hpd_b1jPBw
+     short-id: f2399345b198
+   client-fingerprint: chrome
+ - name: "Hong Kong Amazon 06"
+   type: vless
+   server: hk6.miyazono-kaori.com
+   port: 43143
+   uuid: 3b7e78ac-b72d-47a5-af75-96e6cc1c264b
+   alterId: 0
+   cipher: auto
+   udp: true
+   network: tcp
+   tls: true
+   skip-cert-verify: false
+   servername: www.lamer.com.hk
+   flow: xtls-rprx-vision
+   reality-opts:
+     public-key: XkUuKF3OF9oMZw4pj_JWw97zuYMO74v63oA-eUS-aEc
+     short-id: c4927c198526
+   client-fingerprint: chrome
  - name: "US-LA"
    type: vmess
    server: planb.mojcn.com
@@ -100,12 +186,22 @@ proxy-groups:
       - "US-LA-2"
       - "US-LA-3"
       - "Hong Kong Telecom 01"
+      - "Hong Kong Telecom 02"
+      - "Hong Kong Amazon 03"
+      - "Hong Kong Amazon 04"
+      - "Hong Kong Amazon 05"
+      - "Hong Kong Amazon 06"
       - DIRECT
   - name: "Netflix"
     type: select
     proxies:
       - "London"
       - "Hong Kong Telecom 01"
+      - "Hong Kong Telecom 02"
+      - "Hong Kong Amazon 03"
+      - "Hong Kong Amazon 04"
+      - "Hong Kong Amazon 05"
+      - "Hong Kong Amazon 06"
       - "UK Backup"
       - "US-LA"
       - "US-LA-2"
