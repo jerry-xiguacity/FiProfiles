@@ -16,7 +16,6 @@ proxies:
  - name: "Hong Kong Telecom 01"
    alterId: 0
    cipher: auto
-   client-fingerprint: firefox
    flow: "xtls-rprx-vision"
    port: 443
    reality-opts:
