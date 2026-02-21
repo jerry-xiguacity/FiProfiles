@@ -13,6 +13,20 @@ proxies:
    reality-opts:
      public-key: _dsOu_vxEU7pY3sIeGJxIpR0Ac2KoqIyBor2Bx0CwGA
      short-id: d923
+ - name: "UK Backup 2"
+   type: vless
+   server: uk2.miyazono-kaori.com
+   port: 443
+   uuid: 3b7e78ac-b72d-47a5-af75-96e6cc1c264b
+   udp: true
+   tls: true
+   flow: xtls-rprx-vision
+   skip-cert-verify: false
+   servername: www.bp.com
+   client-fingerprint: chrome
+   reality-opts:
+     public-key: QdYs12kmf0mAXNOEPgMpLN5dbZUlgvRK2zCqynOmqBk
+     short-id: "20"
  - name: "Hong Kong Telecom 01"
    alterId: 0
    cipher: auto
@@ -177,6 +191,7 @@ proxy-groups:
     type: select
     proxies:
       - "UK Backup"
+      - "UK Backup 2"
       - DIRECT
   - name: "Streaming"
     type: select
