@@ -186,6 +186,7 @@ proxy-groups:
     proxies:
       - "London"
       - "UK Backup"
+      - "UK Backup 2"
       - DIRECT
   - name: "Google"
     type: select
@@ -217,6 +218,17 @@ proxy-groups:
       - "Hong Kong Amazon 05"
       - "Hong Kong Amazon 06"
       - "UK Backup"
+      - "UK Backup 2"
+      - "US-LA"
+      - "US-LA-2"
+      - "US-LA-3"
+      - DIRECT
+  - name: "Tubi"
+    type: select
+    proxies:
+      - "London"
+      - "UK Backup"
+      - "UK Backup 2"
       - "US-LA"
       - "US-LA-2"
       - "US-LA-3"
@@ -232,6 +244,7 @@ rules:
   - GEOSITE,hbo,Streaming
   - GEOSITE,disney,Streaming
   - GEOSITE,netflix,Netflix
+  - GEOSITE,tubi,Tubi
   - DOMAIN-SUFFIX,tapbots.com,Auto
   - GEOSITE,steam@cn,DIRECT
   - GEOSITE,steam,Auto
