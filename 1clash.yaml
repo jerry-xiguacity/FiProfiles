@@ -241,6 +241,7 @@ rules:
   - PROCESS-NAME,Telegram.exe,Auto
   - PROCESS-NAME,Telegram,Auto
   - GEOSITE,google,Google
+  - GEOSITE,linkedin,Auto
   - GEOSITE,hbo,Streaming
   - GEOSITE,disney,Streaming
   - GEOSITE,netflix,Netflix
