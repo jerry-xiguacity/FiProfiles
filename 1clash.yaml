@@ -198,6 +198,7 @@ proxy-groups:
     type: select
     proxies:
       - "London"
+      - "London Backup"
       - "UK Backup"
       - "UK Backup 2"
       - DIRECT
@@ -206,6 +207,8 @@ proxy-groups:
     proxies:
       - "UK Backup"
       - "UK Backup 2"
+      - "London"
+      - "London Backup"
       - DIRECT
   - name: "Streaming"
     type: select
@@ -224,6 +227,7 @@ proxy-groups:
     type: select
     proxies:
       - "London"
+      - "London Backup"
       - "Hong Kong Telecom 01"
       - "Hong Kong Telecom 02"
       - "Hong Kong Amazon 03"
@@ -240,6 +244,7 @@ proxy-groups:
     type: select
     proxies:
       - "London"
+      - "London Backup"
       - "UK Backup"
       - "UK Backup 2"
       - "US-LA"
