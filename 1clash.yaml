@@ -183,16 +183,16 @@ proxies:
  - name: "London Backup"
    type: vless
    server: 185.212.62.196
-   port: 12078
-   uuid: 843363f3-e309-408d-b6fc-a829b043b275
+   port: 43130
+   uuid: c75cb3d4-cc35-462b-9664-5b6777328f5c
    network: tcp
    tls: true
    skip-cert-verify: false
-   servername: www.amazon.com
+   servername: www.ebay.com
    client-fingerprint: chrome
    flow: xtls-rprx-vision
    reality-opts:
-     public-key: XG0220Y8vMQLOhrtOOcMUON0QWIeN5yHduNPOsiccm0
+     public-key: iCfiz5m-t3tqL3m27sLS0N3lsCeuLEGrRKWxLKFj83E
 proxy-groups:
  - name: "Auto"
    type: select
